@@ -1,0 +1,5 @@
+/.idea/
+edict2
+/vendor/
+db.sqlite3
+.env
