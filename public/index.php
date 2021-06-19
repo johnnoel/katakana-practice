@@ -13,6 +13,7 @@ $row = $res->fetchAssociative();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- View the source code for this at https://github.com/johnnoel/katakana-practice -->
     <title>Katakana practice</title>
 </head>
 <body>
@@ -45,6 +46,10 @@ $row = $res->fetchAssociative();
         <?php endif; ?>
     </dl>
 </div>
+
+<footer>
+    Katakana words are extracted from the <a href="http://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project">JMdict EDICT file</a> and used under the <a href="http://www.edrdg.org/edrdg/licence.html">Creative Commons Attribution-ShareAlike Licence (V3.0)</a>.
+</footer>
 
 <script>
     const btn = document.getElementById('js-showcontrol');
