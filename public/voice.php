@@ -24,7 +24,7 @@ if (!$request->query->has('id')) {
 $id = $request->query->get('id');
 
 $db = DriverManager::getConnection([ 'url' => 'sqlite:///' . __DIR__ . '/../db.sqlite3' ]);
-$sql = 'SELECT * FROM katakana WHERE id = :id';
+$sql = 'SELECT * FROM words WHERE id = :id';
 $res = $db->executeQuery($sql, [ 'id' => $id ]);
 $row = $res->fetchAssociative();
 
@@ -45,7 +45,7 @@ $url = $client->createSynthesizeSpeechPreSignedUrl([
     'Engine' => 'standard',
     'LanguageCode' => 'ja-JP',
     'OutputFormat' => 'ogg_vorbis',
-    'Text' => $row['katakana'],
+    'Text' => $row['word'],
     'TextType' => 'text',
     'VoiceId' => 'Mizuki',
 ]);

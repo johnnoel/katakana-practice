@@ -1,5 +1,11 @@
 /.idea/
-edict2
 /vendor/
+/node_modules/
+/public/build/
+/var/files/*
+!/var/files/.gitkeep
+edict2
 db.sqlite3
+db.sqlite3-journal
 .env
+mochi-export.zip

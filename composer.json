@@ -4,6 +4,8 @@
     "type": "project",
     "require": {
         "php": "^8.0",
+        "ext-mbstring": "*",
+        "ext-zip": "*",
         "symfony/string": "^5.3",
         "symfony/var-dumper": "^5.3",
         "doctrine/dbal": "^2.13",
