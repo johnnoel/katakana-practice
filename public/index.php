@@ -13,6 +13,7 @@ $row = $res->fetchAssociative();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- View the source code for this at https://github.com/johnnoel/katakana-practice -->
     <title>Katakana practice</title>
 </head>
