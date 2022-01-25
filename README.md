@@ -1,8 +1,8 @@
-# Katakana practice
+# Japanese words practice
 
 [Live demo](https://katakana.johnnoel.uk)
 
-Practice katakana words extracted from [JMdict EDICT](http://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project).
+Practice katakana and kanji words extracted from [JMdict EDICT](http://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project).
 
 ## Up and running
 
