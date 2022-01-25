@@ -27,11 +27,8 @@ final class Version20210619152957 extends AbstractMigration
             extra1 TEXT(4096),
             extra2 TEXT(4096),
             extra3 TEXT(4096),
-            type TEXT(8) NOT NULL,
             CONSTRAINT words_PK PRIMARY KEY (id)
         )');
-
-        $this->addSql('CREATE INDEX idx_words_type ON words (type)');
     }
 
     public function down(Schema $schema): void

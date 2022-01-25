@@ -4,6 +4,7 @@ use Aws\Credentials\Credentials;
 use Aws\Polly\PollyClient;
 use Doctrine\DBAL\DriverManager;
 use Dotenv\Dotenv;
+use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -34,6 +35,16 @@ if ($row === false) {
     exit;
 }
 
+$filePath = __DIR__ . '/../var/files/' . $row['id'] . '.ogg';
+
+if (file_exists($filePath)) {
+    $response = new BinaryFileResponse($filePath, Response::HTTP_OK, [
+        'Content-Type' => 'audio/ogg',
+    ]);
+    $response->send();
+    exit;
+}
+
 $credentials = new Credentials($_ENV['AWS_ACCESS_KEY_ID'], $_ENV['AWS_SECRET_ACCESS_KEY']);
 $client = new PollyClient([
     'region' => 'eu-west-2',
@@ -50,8 +61,14 @@ $url = $client->createSynthesizeSpeechPreSignedUrl([
     'VoiceId' => 'Mizuki',
 ]);
 
-// todo cache it
-
+$written = file_put_contents($filePath, file_get_contents($url));
 $response = new RedirectResponse($url);
+
+if ($written !== false) {
+    $response = new BinaryFileResponse($filePath, Response::HTTP_OK, [
+        'Content-Type' => 'audio/ogg',
+    ]);
+}
+
 $response->send();
 exit;
